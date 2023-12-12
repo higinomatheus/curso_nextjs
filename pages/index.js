@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -15,6 +16,13 @@ export default function Home() {
       </Head>
       <div>
         <h1 className={styles.title}>Página Inicial</h1>
+        {/* Considera o caminho da imagem a partir do diretorio public */}
+        <Image
+          src="/images/city.jpg"
+          width={200}
+          height={300}
+          alt="Cidade à noite"
+        />
       </div>
     </>
   );
