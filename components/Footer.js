@@ -1,5 +1,11 @@
-export default function Footer() {
-  const anoAtual = new Date().getFullYear();
+import styles from "../styles/Footer.module.css";
 
-  return <p>Curso de Next.js &copy; {anoAtual}</p>;
+export default function Footer() {
+  const dataAtual = new Date();
+
+  return (
+    <footer className={styles.footer}>
+      <p>Curso de Next.js &copy; {dataAtual.getFullYear()}</p>
+    </footer>
+  );
 }
