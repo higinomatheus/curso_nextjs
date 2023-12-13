@@ -1,6 +1,10 @@
+import Link from "next/link";
+import Head from "next/head";
+import Image from "next/image";
+
 import styles from "../../styles/Todos.module.css";
 
-import Head from "next/head";
+import visibilityIcon from "../../public/visibility.svg";
 
 export async function getStaticProps() {
   const data = await fetch("https://jsonplaceholder.typicode.com/todos");
@@ -27,7 +31,14 @@ export default function Todos({ todos }) {
       <ul className={styles.todolist}>
         {todos.map((todo) => {
           if (todo.completed == false) {
-            return <li key={todo.id}>{todo.title}</li>;
+            return (
+              <li key={todo.id}>
+                {todo.title}{" "}
+                <Link href={`/todos/${todo.id}`}>
+                  <Image src={visibilityIcon} alt="Visualizar o todo"></Image>
+                </Link>
+              </li>
+            );
           }
           return null;
         })}
